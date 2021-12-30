@@ -2,6 +2,7 @@
     /* color */
     --color-white: #ffffff;
     --color--grey:#CCD5CC;
+    --color--blue:#6075CC;
     /* font */
     --font-large:40px;
     --font-medium:30px;
@@ -10,6 +11,8 @@
     /* weight */
     --weight-bold:700;
     --weight-light:300;
+    /* animation */
+    --animation-duration:500ms;
 }
 /* 전체 */
 *{
@@ -104,4 +107,48 @@ p{
     font-size: var(--font-small);
     font-weight: var(--weight-bold);
     border:2px solid var(--color--grey)
+}
+/* about */
+#about{
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+}
+.about__majors{
+    display: flex;
+    justify-content: space-between;
+    margin: 80px 0px;
+}
+.major__icon{
+    line-height: 170px;
+    margin: auto;
+    width: 170px;
+    height: 170px;
+    font-size: 70px;
+    border:1px solid var(--color--grey);
+    border-radius: 50px;
+    margin-bottom: 10px;
+    color: var(--color--blue);
+}
+
+.major__icon:hover i{
+    color:var(--color--grey);
+    transform: rotate(-40deg) scale(1.5);
+}
+.major__icon i{
+    transition: all var(--animation-duration) ease;
+}
+.education{
+    display: flex;
+    align-items: center;
+}
+.education__description{
+    margin: 16px;
+    text-align: left;
+    
+   
+}
+.log__title{
+    text-align: left;
+    margin: 16px;
 }
