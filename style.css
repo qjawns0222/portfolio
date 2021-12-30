@@ -1,0 +1,33 @@
+:root{
+    /* color */
+    --color-white: #ffffff;
+    /* font */
+    --font-large:48px;
+    --font-medium:38px;
+    --font-small:28px;
+
+    /* weight */
+    --weight-bold:700;
+    --weight-light:300;
+}
+/* 전체 */
+h1{
+    font-size: var(--font-large);
+    font-weight: var(--weight-bold);
+    margin:8px 0px;
+}
+h2{
+    font-size: var(--font-medium);
+    font-weight: var(--weight-bold);
+    margin:8px 0px;
+}
+h3{
+    font-size: var(--font-medium);
+    font-weight: var(--weight-light);
+    margin:8px 0px;
+}
+p{
+    font-size: var(--font-small);
+    font-weight: var(--weight-light);
+    margin:5px 0px;
+}
