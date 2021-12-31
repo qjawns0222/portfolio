@@ -315,7 +315,9 @@ p{
    
 }
 .tesimonials{
-    background-color: yellowgreen;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     margin: 40px;
 }
 .testimonial{
