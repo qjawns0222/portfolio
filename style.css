@@ -91,6 +91,11 @@ p{
     color: var(--color-white);
 
 }
+.navbar__toggle{
+    position: absolute;
+    right:30px;
+    display: none;
+}
 /* home */
 #home{
     background: url("img/home-background.png") no-repeat center/cover;
@@ -325,7 +330,8 @@ p{
     margin: 32px;
 }
 .testimonial__avatar{
-    
+    display: flex;
+    align-items: center;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -377,4 +383,54 @@ p{
 }
 .contact__links i:hover{
     transform: scale(1.5);
+}
+/* responsive */
+@media screen and (max-width:768px) 
+{
+    /* navbar */
+    .navbar__toggle{
+        display: block;
+    }
+    #navbar{
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+    .navbar__menu{
+        flex-direction: column;
+        width: 100%;
+        
+    }
+    .navbar__menus{
+        width: 100%;
+        display: none;
+    }
+    /* about */
+    .about__majors{
+        flex-direction: column;
+        
+    }
+    .major{
+        margin-bottom: 24px;
+    }
+    /* skill */
+   
+    .skillset{
+        margin-top: 30px;
+        flex-direction: column;
+    }
+    /* work */
+    .category__btn{
+        margin-top: 12px;
+    }
+    .project{
+        margin-top: 24px;
+        flex-grow: 1;
+    }
+    .project__description>h3:after{
+        
+        margin-left: -130px;
+        
+    
+    }
 }
