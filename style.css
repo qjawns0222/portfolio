@@ -26,6 +26,7 @@
    
 
 }
+
 button{
     background-color: transparent;
     cursor:pointer;
@@ -57,17 +58,37 @@ p{
     font-weight: var(--weight-light);
     margin:5px 0px;
 }
+#navbar.fix{
+
+    animation: down 1s ease;
+    z-index: 1;
+    background: linear-gradient(45deg,#E16A96,#6775C9);;
+
+}
+@keyframes down {
+    0%{
+      transform: translateY(-50px)
+    }
+    100%{
+      transform: translateY(0px)
+    }
+  }
 /* navbar */
 #navbar{
+    
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(45deg,#E16A96,#6775C9);
+    background: transparent;
     font-weight: var(--weight-bold);
-    padding: 16px;
+    padding: 16px 8px;
+   
 
     
 }
+
 .navbar__logo{
     font-size: var(--font-small);
 }
@@ -98,6 +119,7 @@ p{
 }
 /* home */
 #home{
+    padding-top: 72px;
     background: url("img/home-background.png") no-repeat center/cover;
     text-align: center;
 }
