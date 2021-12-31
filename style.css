@@ -22,6 +22,7 @@
     padding:0;
     list-style: none;
     cursor: default;
+    text-align: center;
    
 
 }
@@ -196,6 +197,7 @@ p{
     
 }
 .tools{
+    background-color: #EBBD7A;
     padding: 10px;
     height: 50%;
 }
@@ -217,4 +219,91 @@ p{
 }
 .skill{
     padding: 5px 50px;
+}
+/* work */
+.category__btn{
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: var(--font-medium);
+    font-weight: var(--weight-bold);
+    padding: 8px 24px;
+}
+.wor__catergories{
+    margin: 40px;
+}
+
+.category__btn:hover,
+.category__btn.active{
+    background-color: var(--color--blue);
+    color: var(--color-white);
+}
+.category__count{
+    background-color:#EBBD7A ;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    line-height: 30px;
+    display: inline-block;
+    position: relative;
+    top:-40px;
+    opacity: 0;/*안보이게*/
+    transition:all  var(--animation-duration) ease;/*이동하게하는것*/
+}
+
+.category__btn:hover .category__count,
+.category__btn.active .category__count{
+    opacity: 1;/*보이게*/
+    top: 0;
+}
+
+.work__projects{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    
+    
+}
+.project{
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    background-color: yellow;
+    position: relative;
+    display:flex;
+    flex-direction: center;
+}
+.project__img{
+    max-width:100%;
+    max-height:100%; 
+}
+.project__description{
+    position: absolute;
+    background-color: black;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    color: white;
+    opacity: 0;
+    transform: translateY(10px);
+    transition:all  var(--animation-duration) ease;
+}
+.project:hover .project__description{
+    opacity: 0.8;
+    transform: translateY(0px);
+}
+.project__description>h3:after{
+    content: '';
+    display: block;
+    position: relative;
+    margin-left: -70px;
+    margin-top: 8px;
+    left: 50%;
+    width: 50%;
+    height: 1px;
+    background-color: white;
+
 }
