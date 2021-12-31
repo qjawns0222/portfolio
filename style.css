@@ -307,3 +307,48 @@ p{
     background-color: white;
 
 }
+/* testimonial */
+#testimonials{
+    background-color: var(--color--grey);
+    display: flex;
+    flex-flow: column;
+   
+}
+.tesimonials{
+    background-color: yellowgreen;
+    margin: 40px;
+}
+.testimonial{
+    display: flex;
+    margin: 32px;
+}
+.testimonial__avatar{
+    
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.testimonial__avatar:nth-child(odd){
+    margin-right: 40px;
+}
+.testimonial__avatar:nth-child(even){
+    margin-left: 40px;
+}
+.testimonial__speech-bubble{
+    background-color: whitesmoke;
+    border-radius: 4px;
+}
+.testimonial__speech-bubble p{
+    color: #5e5e70;
+}
+
+.testimonial__speech-bubble .name{
+    
+    font-weight: var(--weight-bold);
+    font-size:12px;
+}
+.testimonial__speech-bubble a{
+    color: var(--color--blue);
+    font-weight: var(--weight-bold);
+    font-size:12px;
+}
