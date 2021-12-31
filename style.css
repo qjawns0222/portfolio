@@ -352,3 +352,27 @@ p{
     font-weight: var(--weight-bold);
     font-size:12px;
 }
+/* contact */
+#contact{
+    color: var(--color--grey);
+    background-color: var(--color--blue);
+}
+.contact__rights,
+.contact__title{
+    padding: 30px;
+    margin: 0;
+}
+.contact__links{
+    color: var(--color--grey);
+    font-size: var(--font-large);
+}
+.contact__links a{
+    color: var(--color--grey);
+    margin: 10px;
+}
+.contact__links i{
+    transform:all var(--animation-duration) ease;
+}
+.contact__links i:hover{
+    transform: scale(1.5);
+}
