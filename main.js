@@ -1,10 +1,9 @@
 'use strict'
-
+const home=document.querySelector('.home__container');
 const nav=document.querySelector('#navbar');
 const menu=document.querySelector('.navbar__menu');
-const mhome=document.querySelector('#menu__Home');
-const mskill=document.querySelector('#menu__skills');
-const skill=document.querySelector('#skills');
+const contact=document.querySelector('.home__contact');
+
 const navtop=nav.getBoundingClientRect().height;
 //바에 클래스 추가해서 고정되게하는것(기본을 고정으로 하고 기본색깔을 transparent로 통해 투명하게 그리고 내려오면 색깔을 넣어서 만든다)
 const fixnav=()=>{
@@ -23,6 +22,10 @@ const scrollmenu=(event)=>{
     if(locate)
         window.scrollTo( {top:skill.offsetTop-71, left:0, behavior: 'smooth',});
 }
+//home 투명도 스크롤 내릴때
+const opa=()=>home.style.opacity=1-window.scrollY/(home.offsetHeight-71);
+
+
 
 
 
@@ -33,4 +36,7 @@ const scrollmenu=(event)=>{
 
 
 window.addEventListener('scroll',fixnav);
-menu.addEventListener('click',scrollmenu)
+menu.addEventListener('click',scrollmenu);
+contact.addEventListener('click',scrollmenu);
+window.addEventListener('scroll',opa);
+console.log()
