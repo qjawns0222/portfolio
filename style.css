@@ -406,6 +406,28 @@ p{
 .contact__links i:hover{
     transform: scale(1.5);
 }
+/* etc*/
+.up__arrow{
+    position: fixed;
+    
+    bottom: 40px;
+    right: 40px;
+    font-size: var(--font-large);
+    border-radius: 50%;
+    background-color: violet;
+    height: 80px;
+    width:80px;
+    line-height: 50px;
+    border: none;
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--animation-duration) ease-in;
+    
+}
+.up__arrow i{
+    cursor:pointer;
+}
 /* responsive */
 @media screen and (max-width:768px) 
 {
@@ -454,5 +476,10 @@ p{
         margin-left: -130px;
         
     
+    }
+    .up__arrow{
+        height: 50px;
+        width:50px;
+        font-size: var(--font-medium);
     }
 }

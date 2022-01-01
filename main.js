@@ -3,6 +3,7 @@ const home=document.querySelector('.home__container');
 const nav=document.querySelector('#navbar');
 const menu=document.querySelector('.navbar__menu');
 const contact=document.querySelector('.home__contact');
+const arrow=document.querySelector(".up__arrow");
 
 const navtop=nav.getBoundingClientRect().height;
 //바에 클래스 추가해서 고정되게하는것(기본을 고정으로 하고 기본색깔을 transparent로 통해 투명하게 그리고 내려오면 색깔을 넣어서 만든다)
@@ -25,9 +26,24 @@ const scrollmenu=(event)=>{
 //home 투명도 스크롤 내릴때
 const opa=()=>home.style.opacity=1-window.scrollY/(home.offsetHeight-71);
 
+// 화살표 클릭 가능 불가능 보이는거 안보이는거
+const arrvis=()=>{   
+    if(window.scrollY>=nav.clientHeight)
+    {
+        arrow.style.opacity=1;
+        arrow.style.pointerEvents = "auto";
+    
+    }
+    else
+    {
 
+        arrow.style.opacity=0;
+        arrow.style.pointerEvents = "none";
+        
+    }}
 
-
+// 제위로 당기는거
+const uptotop=()=>window.scrollTo(0,0);
 
 
 
@@ -39,4 +55,6 @@ window.addEventListener('scroll',fixnav);
 menu.addEventListener('click',scrollmenu);
 contact.addEventListener('click',scrollmenu);
 window.addEventListener('scroll',opa);
-console.log()
+window.addEventListener('scroll',arrvis)
+arrow.addEventListener('click',uptotop)
+
