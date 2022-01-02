@@ -255,8 +255,9 @@ p{
     font-weight: var(--weight-bold);
     padding: 8px 24px;
 }
-.wor__catergories{
+.work__catergories{
     margin: 40px;
+    
 }
 
 .category__btn:hover,
@@ -298,6 +299,7 @@ p{
     position: relative;
     display:flex;
     flex-direction: center;
+    transition:all  var(--animation-duration) ease;
 }
 .project__img{
     max-width:100%;
@@ -316,7 +318,7 @@ p{
     color: white;
     opacity: 0;
     transform: translateY(10px);
-    transition:all  var(--animation-duration) ease;
+    transition: var(--animation-duration);
 }
 .project:hover .project__description{
     opacity: 0.8;
