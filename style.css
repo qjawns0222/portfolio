@@ -98,8 +98,8 @@ p{
     
 }
 .navbar__menu__item{
-    padding: 8px 0px;
-    margin: 0px 20px;
+    padding: 8px 20px;
+    
     cursor: pointer;
 }
 .navbar__menu__item.active{
@@ -282,8 +282,12 @@ p{
 .category__btn.active .category__count{
     opacity: 1;/*보이게*/
     top: 0;
+    
 }
 
+.work__catergories .category__count{
+    pointer-events: none;
+}
 .work__projects{
     display: flex;
     flex-flow: wrap;

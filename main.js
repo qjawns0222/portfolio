@@ -6,15 +6,16 @@ const contact=document.querySelector('.home__contact');
 const arrow=document.querySelector(".up__arrow");
 const work=document.querySelectorAll(".project");
 const workbtn=document.querySelector(".work__catergories");
+const section=document.querySelectorAll("section");
 const navtop=nav.getBoundingClientRect().height;
 //바에 클래스 추가해서 고정되게하는것(기본을 고정으로 하고 기본색깔을 transparent로 통해 투명하게 그리고 내려오면 색깔을 넣어서 만든다)
 const fixnav=()=>{
-    if(window.scrollY>=nav.clientHeight)
+    if(window.scrollY>=nav.offsetHeight)
         nav.classList.add('fix')
     else{
         nav.classList.remove('fix')
     }
-    console.log(window.scrollY);
+    //console.log(window.scrollY);
     
 }
 //클릭시 그곳으로 화면이동
@@ -49,63 +50,37 @@ const uptotop=()=>window.scrollTo(0,0);
 const proofilter=(event)=>{
     
     const filter=event.target.innerText.split(' ')[0];
-    
-    if(filter>=0)
-        return;
-    setTimeout(()=>{
-    setTimeout(()=>{
-        
+    if(event.target.classList.contains('active'))
+        return;  
+    setTimeout(()=>
+    {
+        setTimeout(()=>
+            {        
+                work.forEach((work)=>
+                {
+                    if(filter==='All'|| filter===work.attributes.target.value)
+                    {
+                        work.style.transition="all  1s ease ";
+                        work.style.opacity=1;
+                        work.style.transform= "translateY(0px)";
+                    }           
+                })
+                
+            },500)
         work.forEach((work)=>
-        {
-            
-        
-            if(filter==='All'|| filter===work.attributes.target.value)
             {
-                
-                
-                work.style.transition="all  1s ease ";
-                work.style.opacity=1;
-                work.style.transform= "translateY(0px)";
-                
-    
-            }     
-       
-        })
-        
-    },500)
+                if(filter==='All'|| filter===work.attributes.target.value)
+                {
+                    work.style.display="flex";
+                }     
+            })
+    },501)
+    setTimeout(()=>{work.forEach((work)=>  work.style.display="none")},500)
     work.forEach((work)=>
     {
-        
-    
-        if(filter==='All'|| filter===work.attributes.target.value)
-        {
-            work.style.display="flex";
-           
-            
-            
-            
-            
-
-        }     
-
-    })},501)
-    setTimeout(()=>{
-        
-        work.forEach((work)=>
-        {   
-                
-                work.style.display="none";
-   
-        })
-        
-    },500)
-    work.forEach((work)=>
-    {
-        
-            
-            work.style.transition="all  1s ease";
-            work.style.opacity=0;
-            work.style.transform="translateY(100px)";
+        work.style.transition="all  1s ease";
+        work.style.opacity=0;
+        work.style.transform="translateY(100px)";
     })
 } 
 
@@ -116,31 +91,16 @@ const probtncoutn=()=>{
     var countC=0;
     var countJ=0;
     
-    work.forEach((work)=> {
+    work.forEach((work)=> 
+    {
         if(work.attributes.target.value)
-        {
             countA++;
-            
-
-        }
         if('HTML'===work.attributes.target.value)
-        {
-            countH++;
-            
-        }
-            
+            countH++;           
         else if('CSS'===work.attributes.target.value)
-        {
-            countC++;
-            
-        }   
+            countC++;  
         else if('JS'===work.attributes.target.value)
-        {
-            countJ++;
-            
-        }
-        
-        
+            countJ++;   
     })
     workbtn.children[1].children[0].innerText=countH;
     workbtn.children[2].children[0].innerText=countC;
@@ -148,10 +108,41 @@ const probtncoutn=()=>{
     workbtn.children[0].children[0].innerText=countA;
 
 };
+//project active
+const worbtnactive=(event)=>{
+    const child=[...workbtn.children];
+    child.forEach(btn=>
+            {
+                btn.classList.remove('active')
+            }
+        )
+    event.target.classList.add('active')  
+}
+//nav menu active
+const navbtnactive=(event)=>
+{
+    const child=[...menu.children];
+    child.forEach(btn=>btn.classList.remove('active'))
+    event.target.classList.add('active')   
+}
+//scroll nav menu active //a<b<c는 무조건 true가 나온다
+const scrnavactive=()=>{
+    const child=[...menu.children];
+    
+    child.forEach(btn=>{btn.classList.remove('active')})
+    for(let i=0;i<section.length;i++)
 
-
-
-
+    if(i===0)
+    {
+        if( section[i].offsetHeight/2 >= window.scrollY)
+            child[i].classList.add("active"); 
+    }
+    else
+    {        
+        if(section[i].offsetTop-(section[i-1].offsetHeight/2)<= window.scrollY && window.scrollY<= section[i].offsetTop+(section[i].offsetHeight/2))   
+            child[i].classList.add("active");      
+    }  
+}
 window.addEventListener('scroll',fixnav);
 menu.addEventListener('click',scrollmenu);
 contact.addEventListener('click',scrollmenu);
@@ -160,4 +151,7 @@ window.addEventListener('scroll',arrvis);
 arrow.addEventListener('click',uptotop);
 workbtn.addEventListener('click',proofilter);
 probtncoutn();
-console.log(workbtn.children[3].children[0]);
+workbtn.addEventListener('click',worbtnactive);
+menu.addEventListener('click',navbtnactive);
+window.addEventListener('scroll',scrnavactive);
+console.log(5<10<9)
