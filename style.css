@@ -102,6 +102,7 @@ p{
     
     cursor: pointer;
 }
+
 .navbar__menu__item.active{
     transform: scale(1.5);
     color: var(--color-white);
@@ -221,7 +222,7 @@ p{
 .skill__description{
     display: flex;
     justify-content: space-between;
-    padding: 5px 40px;
+    padding: 5px 0%;
     
 }
 .tools{
@@ -238,7 +239,7 @@ p{
     width: 100%;
     height: 3px;
     background-color: var(--color--grey);
-    margin: 20px;       
+    margin: 1%;       
 }
 .skill__value{
     
@@ -246,7 +247,7 @@ p{
     background-color: #73C7A8; 
 }
 .skill{
-    padding: 5px 50px;
+    padding: 5px 5%;
 }
 /* work */
 .category__btn{
@@ -255,6 +256,7 @@ p{
     font-size: var(--font-medium);
     font-weight: var(--weight-bold);
     padding: 8px 24px;
+    position: relative;
 }
 .work__catergories{
     margin: 40px;
@@ -272,17 +274,21 @@ p{
     width: 35px;
     border-radius: 50%;
     line-height: 30px;
+    margin-left: 10px;
     display: inline-block;
-    position: relative;
+    position: absolute;
     top:-40px;
+    right: 4px;
     opacity: 0;/*안보이게*/
-    transition:all  var(--animation-duration) ease;/*이동하게하는것*/
+    transition:all var(--animation-duration) ease-in-out;/*이동하게하는것*/
 }
 
 .category__btn:hover .category__count,
 .category__btn.active .category__count{
+    
     opacity: 1;/*보이게*/
-    top: 0;
+    top:0px;
+    position: relative;
     
 }
 
@@ -361,6 +367,10 @@ p{
     display: flex;
     margin: 32px;
 }
+.testimonial:nth-child(even){
+    display: flex;
+    flex-direction: row-reverse; 
+}
 .testimonial__avatar{
     display: flex;
     align-items: center;
@@ -369,10 +379,12 @@ p{
     border-radius: 50%;
 }
 .testimonial__avatar:nth-child(odd){
+    
     margin-right: 40px;
 }
-.testimonial__avatar:nth-child(even){
+.testimonial:nth-child(even)>img{
     margin-left: 40px;
+    margin-right: 0px;
 }
 .testimonial__speech-bubble{
     background-color: whitesmoke;
@@ -427,7 +439,7 @@ p{
     background-color: violet;
     height: 80px;
     width:80px;
-    line-height: 50px;
+    line-height: 80px;
     border: none;
     cursor: pointer;
     pointer-events: none;
@@ -441,6 +453,7 @@ p{
 /* responsive */
 @media screen and (max-width:768px) 
 {
+   
     /* navbar */
     .navbar__toggle{
         display: block;
@@ -455,10 +468,13 @@ p{
         z-index: 1;
 
     }
+    #navbar.toggle{
+        background: linear-gradient(45deg,#E16A96,#6775C9);
+
+    }
     .navbar__menu{
         flex-direction: column;
-        width: 100%;
-       
+        width: 100%;      
     }
     .navbar__menus{
         width: 100%;
@@ -474,7 +490,7 @@ p{
     /* about */
     .about__majors{
         flex-direction: column;
-        
+        margin:30px 0px;
     }
     .major{
         margin-bottom: 24px;
@@ -487,16 +503,52 @@ p{
     }
     /* work */
     .category__btn{
-        margin-top: 12px;
+        margin-top: 10px;
+        width: 100%;
     }
+    .category__btn:hover .category__count,
+.category__btn.active .category__count{
+    
+    right: 25%;
+    top:15px;
+    position: absolute;
+    
+}
+
     .project{
         margin-top: 24px;
         flex-grow: 1;
     }
 
     .up__arrow{
-        height: 50px;
-        width:50px;
-        font-size: var(--font-medium);
+        height: 40px;
+        width:40px;
+        line-height: 40px;
+        font-size: var(--font-small);
+        right: 16px;
+        bottom: 16px;
+    }
+    .testimonial{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+    }
+    .testimonial:nth-child(even){
+        display: flex;
+        flex-direction: column; 
+    }
+    .testimonial__avatar:nth-child(odd){
+        margin-right: 0px;
+        margin-bottom: 30%;
+    }
+    .testimonial__avatar:nth-child(even){
+        margin-left: 0px;
+        margin-bottom: 30%;
+    }
+    .testimonial:nth-child(even)>img{
+        margin-left: 0px;
+        margin-right: 0px;
     }
 }
+/* testimonial */
