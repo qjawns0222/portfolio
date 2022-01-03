@@ -57,10 +57,10 @@ const uptotop=()=>window.scrollTo(0,0);
 const proofilter=(event)=>{
    
     if(window.innerWidth>768)
-        var filter=event.target.innerText.split('')[0];
+        var filter=event.target.innerText.split(' ')[0];
     else
         var filter=event.target.innerText.split('\n')[0];
-    
+    console.log(filter)
     if(event.target.classList.contains('active') || event.target.classList.contains('work__catergories'))
         return;  
     
