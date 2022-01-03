@@ -2,12 +2,15 @@
 const home=document.querySelector('.home__container');
 const nav=document.querySelector('#navbar');
 const menu=document.querySelector('.navbar__menu');
+const menus=document.querySelector('.navbar__menus');
 const contact=document.querySelector('.home__contact');
 const arrow=document.querySelector(".up__arrow");
 const work=document.querySelectorAll(".project");
 const workbtn=document.querySelector(".work__catergories");
 const section=document.querySelectorAll("section");
+const ham=document.querySelector(".navbar__toggle>i")
 const navtop=nav.getBoundingClientRect().height;
+let check=0;
 //바에 클래스 추가해서 고정되게하는것(기본을 고정으로 하고 기본색깔을 transparent로 통해 투명하게 그리고 내려오면 색깔을 넣어서 만든다)
 const fixnav=()=>{
     if(window.scrollY>=nav.offsetHeight)
@@ -143,6 +146,20 @@ const scrnavactive=()=>{
             child[i].classList.add("active");      
     }  
 }
+//navbar 토글 버튼 
+const menusee=()=>{
+    ++check
+    if(check%2)
+    {
+        menus.style.display="flex";
+        nav.style.background="linear-gradient(45deg,#E16A96,#6775C9)";
+    }
+    else
+    {
+        menus.style.display="none";
+        nav.style.background="transparent"
+    }
+}
 window.addEventListener('scroll',fixnav);
 menu.addEventListener('click',scrollmenu);
 contact.addEventListener('click',scrollmenu);
@@ -154,4 +171,4 @@ probtncoutn();
 workbtn.addEventListener('click',worbtnactive);
 menu.addEventListener('click',navbtnactive);
 window.addEventListener('scroll',scrnavactive);
-console.log(5<10<9)
+ham.addEventListener('click',menusee);

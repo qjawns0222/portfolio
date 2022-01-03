@@ -58,21 +58,7 @@ p{
     font-weight: var(--weight-light);
     margin:5px 0px;
 }
-#navbar.fix{
 
-    animation: down 1s ease;
-    z-index: 1;
-    background: linear-gradient(45deg,#E16A96,#6775C9);;
-
-}
-@keyframes down {
-    0%{
-      transform: translateY(-50px)
-    }
-    100%{
-      transform: translateY(0px)
-    }
-  }
 /* navbar */
 #navbar{
     
@@ -88,7 +74,21 @@ p{
 
     
 }
+#navbar.fix{
 
+    animation: down 1s ease;
+    z-index: 1;
+    background: linear-gradient(45deg,#E16A96,#6775C9);
+
+}
+@keyframes down {
+    0%{
+      transform: translateY(-50px)
+    }
+    100%{
+      transform: translateY(0px)
+    }
+  }
 .navbar__logo{
     font-size: var(--font-small);
 }
@@ -114,6 +114,7 @@ p{
 }
 .navbar__toggle{
     position: absolute;
+    font-size: var(--font-small);
     right:30px;
     display: none;
 }
@@ -328,11 +329,14 @@ p{
     opacity: 0.8;
     transform: translateY(0px);
 }
+.project__description>h3{
+    color:var(--color--blue);
+}
 .project__description>h3:after{
     content: '';
     display: block;
     position: relative;
-    margin-left: -70px;
+    margin-left: -25%;
     margin-top: 8px;
     left: 50%;
     width: 50%;
@@ -440,20 +444,32 @@ p{
     /* navbar */
     .navbar__toggle{
         display: block;
+        cursor: pointer;
+        
+        
     }
     #navbar{
         flex-direction: column;
         align-items: flex-start;
+        
+        z-index: 1;
 
     }
     .navbar__menu{
         flex-direction: column;
         width: 100%;
-        
+       
     }
     .navbar__menus{
         width: 100%;
+        background: linear-gradient(45deg,#E16A96,#6775C9);
         display: none;
+    }
+    #navbar.fix{
+
+        animation: none;
+        
+    
     }
     /* about */
     .about__majors{
@@ -477,12 +493,7 @@ p{
         margin-top: 24px;
         flex-grow: 1;
     }
-    .project__description>h3:after{
-        
-        margin-left: -130px;
-        
-    
-    }
+
     .up__arrow{
         height: 50px;
         width:50px;
