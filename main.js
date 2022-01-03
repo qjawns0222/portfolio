@@ -55,20 +55,26 @@ const arrvis=()=>{
 const uptotop=()=>window.scrollTo(0,0);
 //target 이름으로 프로젝트 숨기고 보이게 하는것 그리고 내려갔다 올라오는 애니매이션+ 다사라졌다가 다시 올라옴
 const proofilter=(event)=>{
-    
-    const filter=event.target.innerText.split(' ')[0];
+   
+    if(window.innerWidth>768)
+        var filter=event.target.innerText.split('')[0];
+    else
+        var filter=event.target.innerText.split('\n')[0];
     
     if(event.target.classList.contains('active') || event.target.classList.contains('work__catergories'))
         return;  
-   
+    
     setTimeout(()=>
     {
         setTimeout(()=>
-            {        
+            {       
+                
                 work.forEach((work)=>
                 {
+                    
                     if(filter==='All'|| filter===work.attributes.target.value)
                     {
+                        
                         work.style.transition="all  1s ease ";
                         work.style.opacity=1;
                         work.style.transform= "translateY(0px)";
@@ -80,10 +86,11 @@ const proofilter=(event)=>{
             {
                 if(filter==='All'|| filter===work.attributes.target.value)
                 {
+                    
                     work.style.display="flex";
                 }     
             })
-    },501)
+    },510)
     setTimeout(()=>{work.forEach((work)=>  work.style.display="none")},500)
     work.forEach((work)=>
     {
@@ -116,6 +123,7 @@ const probtncoutn=()=>{
 };
 //project active
 const worbtnactive=(event)=>{
+    
     if(event.target.classList.contains('active') || event.target.classList.contains('work__catergories'))
         return; 
     const child=[...workbtn.children];
@@ -222,4 +230,3 @@ workbtn.addEventListener('click',worbtnactive);
 menu.addEventListener('click',navbtnactive);
 window.addEventListener('scroll',scrnavactive);
 ham.addEventListener('click',menusee);
-

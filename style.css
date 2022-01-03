@@ -507,15 +507,18 @@ p{
         width: 100%;
     }
     .category__btn:hover .category__count,
-.category__btn.active .category__count{
-    
-    right: 25%;
-    top:15px;
-    position: absolute;
-    
-}
-
-    .project{
+    .category__btn.active .category__count{
+        
+        right: 25%;
+        top:15px;
+        position: absolute;
+        
+    }
+    .work__catergories .category__count{
+        pointer-events: none;
+    }
+    .project
+    {
         margin-top: 24px;
         flex-grow: 1;
     }
