@@ -147,6 +147,7 @@ const scrnavactive=()=>{
     const child=[...menu.children];
     
     child.forEach(btn=>{btn.classList.remove('active')})
+   
     for(let i=0;i<section.length;i++)
 
     if(i===0)
@@ -179,11 +180,11 @@ const menusee=()=>{
 //intersctionObserver 스크롤시 navmenu해당 키 active
 let option={
     root:null,
-    rootMargin:'0% 0% 0% 0%',
+    rootMargin:'0%',
     threshold:1,
 }
 const callback=(entries,observer)=>{
-    console.log(entries[0].isIntersecting,entries[0].boundingClientRect.y);
+    console.log(entries[0].isIntersecting,'#'+entries[0].target.id,entries[0])
     if(entries[0].isIntersecting!==true)
     {
         [...menu.children].forEach(child=>child.classList.remove('active'))
@@ -207,8 +208,8 @@ const callback=(entries,observer)=>{
         }
     }   
 }
-let observer= new IntersectionObserver(callback,option);
-section.forEach(section=>{observer.observe(section)})
+//let observer= new IntersectionObserver(callback,option);
+//section.forEach(section=>{observer.observe(section)})
 window.addEventListener('scroll',fixnav);
 menu.addEventListener('click',scrollmenu);
 contact.addEventListener('click',scrollmenu);
@@ -219,7 +220,6 @@ workbtn.addEventListener('click',proofilter);
 probtncoutn();
 workbtn.addEventListener('click',worbtnactive);
 menu.addEventListener('click',navbtnactive);
-//window.addEventListener('scroll',scrnavactive);
+window.addEventListener('scroll',scrnavactive);
 ham.addEventListener('click',menusee);
 
-console.log([...menu.children][1].classList)
